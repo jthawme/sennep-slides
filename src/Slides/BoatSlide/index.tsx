@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
-import classNames from "classnames";
+import React from "react";
 
-import { useMainContext } from "../../components/MainContext";
+// import { useMainContext } from "../../components/MainContext";
 import { SlideMediaTemplate } from "../../components/SlideMediaTemplate";
 import { ImageSlides } from "../../components/ImageSlides";
 
@@ -10,12 +9,12 @@ import BoatAppleGif from "../../images/photos/boat-apple.gif";
 import Boat from "../../images/photos/boat.png";
 import BoatMag from "../../images/photos/boatmags.jpg";
 
-import styles from "./BoatSlide.module.scss";
+// import styles from "./BoatSlide.module.scss";
 
 interface BoatSlideProps {}
 
 const BoatSlide: React.FC<BoatSlideProps> = () => {
-  const {} = useMainContext();
+  // const {} = useMainContext();
 
   return (
     <SlideMediaTemplate title="She Was Only – Boat Magazine">

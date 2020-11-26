@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from "react";
-import classNames from "classnames";
+import React from "react";
 
-import { useMainContext } from "../../components/MainContext";
 import { SlideMediaTemplate } from "../../components/SlideMediaTemplate";
 import { ImageSlides } from "../../components/ImageSlides";
 
@@ -13,13 +11,9 @@ import Prints from "../../images/photos/prints.jpg";
 import Nice from "../../images/photos/nice.jpg";
 import Pitchfork from "../../images/photos/pitchfork.png";
 
-import styles from "./PersonalPracticeSlide.module.scss";
-
 interface PersonalPracticeSlideProps {}
 
 const PersonalPracticeSlide: React.FC<PersonalPracticeSlideProps> = () => {
-  const {} = useMainContext();
-
   return (
     <SlideMediaTemplate title="Personal Practice">
       <ImageSlides

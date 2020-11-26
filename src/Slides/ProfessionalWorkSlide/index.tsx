@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from "react";
-import classNames from "classnames";
+import React from "react";
 
-import { useMainContext } from "../../components/MainContext";
 import { SlideMediaTemplate } from "../../components/SlideMediaTemplate";
 import { ImageSlides } from "../../components/ImageSlides";
 
@@ -13,13 +11,9 @@ import YoutubeAds from "../../images/photos/youtubeads.png";
 import Boat from "../../images/photos/boat.png";
 import Galvin from "../../images/photos/galvin.png";
 
-import styles from "./ProfessionalWorkSlide.module.scss";
-
 interface ProfessionalWorkSlideProps {}
 
 const ProfessionalWorkSlide: React.FC<ProfessionalWorkSlideProps> = () => {
-  const {} = useMainContext();
-
   return (
     <SlideMediaTemplate title="Professional Work">
       <ImageSlides

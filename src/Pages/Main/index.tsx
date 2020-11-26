@@ -1,5 +1,5 @@
 import React from "react";
-import { Switch, useRouteMatch, Route, Redirect } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 import { SlideCommonFooter } from "../../components/SlideCommon/SliderCommonFooter";
 import { IntroSlide } from "../../Slides/IntroSlide";
 import { VennSlide } from "../../Slides/VennSlide";
@@ -13,6 +13,7 @@ import { BoatSlide } from "../../Slides/BoatSlide";
 import { SwoSitesSlide } from "../../Slides/SwoSitesSlide";
 import { ToasterIntroSlide } from "../../Slides/ToasterIntroSlide";
 import { UserPressFeedback } from "../../components/UserPressFeedback";
+import { ToasterTechSlide } from "../../Slides/ToasterTechSlide";
 
 const MainPage: React.FC = () => {
   // let { path } = useRouteMatch();
@@ -53,6 +54,9 @@ const MainPage: React.FC = () => {
         </Route>
         <Route path="/main/11" exact>
           <ToasterIntroSlide />
+        </Route>
+        <Route path="/main/12" exact>
+          <ToasterTechSlide />
         </Route>
         <Route>
           <Redirect to="/main/1" />
