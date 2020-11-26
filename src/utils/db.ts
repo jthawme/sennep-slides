@@ -1,5 +1,6 @@
 import firebase from "firebase/app";
 import "firebase/database";
+import { UserPress } from "../components/UserPressFeedback";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCVx3FVjaAswHFwcE3h9eWoJnpc8OQcrtQ",
@@ -21,3 +22,40 @@ export const infoRef = firebase.database().ref("info");
 infoRef.child("usersCount").transaction((count) => {
   return (count || 0) + 1;
 });
+
+export enum DBEventType {
+  Location = "location",
+}
+
+type DBEventLocation = {
+  type: DBEventType.Location;
+  timestamp: number;
+  value: UserPress;
+};
+
+type DBEventCallback = {
+  (obj: DBEventObject): void;
+};
+
+type DBEventObject = DBEventLocation;
+
+export const listenForEvents = (cb: DBEventCallback) => {
+  const t = new Date().getTime();
+
+  eventsRef.on("child_added", (snapshot) => {
+    const val: DBEventObject = snapshot.val();
+
+    if (val.timestamp > t) {
+      cb(val);
+    }
+  });
+};
+
+export const addEvent = (type: DBEventType, value: any) => {
+  const item = eventsRef.push();
+  return item.set({
+    timestamp: new Date().getTime(),
+    type,
+    value,
+  });
+};

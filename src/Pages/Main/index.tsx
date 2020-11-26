@@ -12,12 +12,14 @@ import { InternSlide } from "../../Slides/InternSlide";
 import { BoatSlide } from "../../Slides/BoatSlide";
 import { SwoSitesSlide } from "../../Slides/SwoSitesSlide";
 import { ToasterIntroSlide } from "../../Slides/ToasterIntroSlide";
+import { UserPressFeedback } from "../../components/UserPressFeedback";
 
 const MainPage: React.FC = () => {
   // let { path } = useRouteMatch();
 
   return (
     <>
+      <UserPressFeedback />
       <Switch>
         <Route path="/main/1" exact>
           <IntroSlide />

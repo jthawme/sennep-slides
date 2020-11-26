@@ -9,6 +9,7 @@ import {
 import { MainContextContainer } from "./components/MainContext";
 import "./styles/global.scss";
 import { MainPage } from "./Pages/Main";
+import { DevicePage } from "./Pages/Device";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -20,7 +21,7 @@ ReactDOM.render(
           </MainContextContainer>
         </Route>
         <Route>
-          <Redirect to="/main" />
+          <DevicePage />
         </Route>
       </Switch>
     </Router>
