@@ -1,10 +1,17 @@
 import React from "react";
 import { Switch, useRouteMatch, Route, Redirect } from "react-router-dom";
 import { SlideCommonFooter } from "../../components/SlideCommon/SliderCommonFooter";
-import { SlideOne } from "../../Slides/SlideOne";
-import { SlideTwo } from "../../Slides/SlideTwo";
-import { SlideThree } from "../../Slides/SlideThree";
-import { SlideFour } from "../../Slides/SlideFour";
+import { IntroSlide } from "../../Slides/IntroSlide";
+import { VennSlide } from "../../Slides/VennSlide";
+import { ProfessionalWorkSlide } from "../../Slides/ProfessionalWorkSlide";
+import { PersonalPracticeSlide } from "../../Slides/PersonalPracticeSlide";
+import { TalkIntroSlide } from "../../Slides/TalkIntroSlide";
+import { UcaSlide } from "../../Slides/UcaSlide";
+import { SwoSlide } from "../../Slides/SwoSlide";
+import { InternSlide } from "../../Slides/InternSlide";
+import { BoatSlide } from "../../Slides/BoatSlide";
+import { SwoSitesSlide } from "../../Slides/SwoSitesSlide";
+import { ToasterIntroSlide } from "../../Slides/ToasterIntroSlide";
 
 const MainPage: React.FC = () => {
   // let { path } = useRouteMatch();
@@ -13,16 +20,37 @@ const MainPage: React.FC = () => {
     <>
       <Switch>
         <Route path="/main/1" exact>
-          <SlideOne />
+          <IntroSlide />
         </Route>
         <Route path="/main/2" exact>
-          <SlideTwo />
+          <VennSlide />
         </Route>
         <Route path="/main/3" exact>
-          <SlideThree />
+          <ProfessionalWorkSlide />
         </Route>
         <Route path="/main/4" exact>
-          <SlideFour />
+          <PersonalPracticeSlide />
+        </Route>
+        <Route path="/main/5" exact>
+          <TalkIntroSlide />
+        </Route>
+        <Route path="/main/6" exact>
+          <UcaSlide />
+        </Route>
+        <Route path="/main/7" exact>
+          <SwoSlide />
+        </Route>
+        <Route path="/main/8" exact>
+          <InternSlide />
+        </Route>
+        <Route path="/main/9" exact>
+          <BoatSlide />
+        </Route>
+        <Route path="/main/10" exact>
+          <SwoSitesSlide />
+        </Route>
+        <Route path="/main/11" exact>
+          <ToasterIntroSlide />
         </Route>
         <Route>
           <Redirect to="/main/1" />

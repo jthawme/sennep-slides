@@ -17,3 +17,7 @@ export const DB = firebase.database();
 
 export const eventsRef = firebase.database().ref("events");
 export const infoRef = firebase.database().ref("info");
+
+infoRef.child("usersCount").transaction((count) => {
+  return (count || 0) + 1;
+});
