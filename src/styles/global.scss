@@ -5,13 +5,44 @@
 }
 
 :root {
-  --font-family-body: sans-serif;
+  --font-family-body: "Poppins", sans-serif;
+  --font-family-code: "IBM Plex Mono", monospace;
 
+  --font-size-small: 11px;
   --font-size-normal: 16px;
+  --font-size-large: 28px;
+  --font-size-x-large: 48px;
+  --font-size-xx-large: 72px;
+
+  --font-weight-normal: 500;
+  --font-weight-bold: 700;
+
+  --color-theme-1: #d4d7db;
+  --color-theme-2: #262626;
+
+  @for $i from 1 through 20 {
+    --size-unit-#{$i}: #{$i * 4}px;
+  }
 }
 
 html,
 body {
   font-family: var(--font-family-body);
   font-size: var(--font-size-normal);
+  font-weight: var(--font-weight-normal);
+
+  background-color: var(--color-theme-1);
+  color: var(--color-theme-2);
+
+  height: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-weight: var(--font-weight-bold);
 }

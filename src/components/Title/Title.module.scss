@@ -1,0 +1,32 @@
+.title {
+  display: block;
+
+  font-family: var(--title-font-family, var(--font-family-body));
+  font-weight: var(--title-font-weight, var(--font-weight-normal));
+}
+
+.code {
+  --title-font-family: var(--font-family-code);
+
+  text-transform: uppercase;
+}
+
+.bold {
+  --title-font-weight: var(--font-weight-bold);
+}
+
+.small {
+  font-size: var(--font-size-normal);
+}
+
+.normal {
+  font-size: var(--font-size-large);
+}
+
+.large {
+  font-size: var(--font-size-x-large);
+}
+
+.x-large {
+  font-size: var(--font-size-xx-large);
+}

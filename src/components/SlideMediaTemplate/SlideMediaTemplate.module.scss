@@ -1,0 +1,38 @@
+.title {
+  text-align: center;
+
+  padding-top: var(--size-unit-6);
+}
+
+.content {
+  display: flex;
+
+  align-items: center;
+  justify-self: center;
+  max-width: 60%;
+
+  margin: 0 auto;
+
+  max-height: calc(100vh - 15vw);
+
+  img,
+  svg {
+    width: 100%;
+  }
+
+  img {
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+  }
+}
+
+.slide {
+  display: grid;
+
+  grid-template-rows: auto 1fr;
+  grid-template-columns: repeat(1, 1fr);
+  row-gap: var(--size-unit-6);
+
+  height: 100vh;
+}

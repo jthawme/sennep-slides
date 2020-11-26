@@ -7,7 +7,7 @@ import {
   Redirect,
 } from "react-router-dom";
 import { MainContextContainer } from "./components/MainContext";
-// import './index.css';
+import "./styles/global.scss";
 import { MainPage } from "./Pages/Main";
 
 ReactDOM.render(

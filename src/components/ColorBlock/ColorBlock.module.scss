@@ -1,0 +1,23 @@
+.wrapper {
+  position: relative;
+  height: 100%;
+}
+
+.swatch {
+  position: absolute;
+
+  bottom: 100%;
+
+  background-color: white;
+
+  padding: 20px;
+  right: 0;
+}
+
+.picker {
+  width: 72px;
+  height: 100%;
+
+  background-color: var(--current-color);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}

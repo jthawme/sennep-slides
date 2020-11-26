@@ -7,26 +7,35 @@ import React, {
   useState,
 } from "react";
 import { useHistory, useParams } from "react-router-dom";
-
-type ActionsList = Array<() => void>;
+import { DEFAULT_COLOR, DEFAULT_INFO } from "../../utils/constants";
+import { infoRef } from "../../utils/db";
 
 enum Key {
   ArrowRight = "ArrowRight",
   ArrowLeft = "ArrowLeft",
 }
 
+interface InfoDbObject {
+  usersCount: number;
+}
+
 interface MainContextProps {
-  actions: ActionsList;
-  addActions: (actions: ActionsList) => void;
   pageNumber: number;
+  colorOne: string;
+  setColorOne: (color: string) => void;
+  colorTwo: string;
+  setColorTwo: (color: string) => void;
+  info: InfoDbObject;
 }
 
 const MainContext = createContext<MainContextProps>({
-  actions: [],
-  addActions: () => false,
+  colorOne: DEFAULT_COLOR.ONE,
+  colorTwo: DEFAULT_COLOR.TWO,
+  setColorOne: () => false,
+  setColorTwo: () => false,
   pageNumber: -1,
+  info: DEFAULT_INFO,
 });
-
 const MainContextContainer: React.FC<{ totalPages: number }> = ({
   children,
   totalPages,
@@ -34,24 +43,21 @@ const MainContextContainer: React.FC<{ totalPages: number }> = ({
   const history = useHistory();
 
   const { page = "1" } = useParams<{ page?: string }>();
-  const [actions, setActions] = useState<ActionsList>([]);
+
+  const [colorOne, setColorOne] = useState("#d4d7db");
+  const [colorTwo, setColorTwo] = useState("#262626");
+  const [info, setInfo] = useState({ ...DEFAULT_INFO });
 
   const pageNumber = useMemo(() => {
     const num = parseInt(page, 10);
     return isNaN(num) ? -1 : num;
   }, [page]);
 
-  const addActions = useCallback((newActions: ActionsList) => {
-    setActions((currentActions) => {
-      return [...currentActions, ...newActions];
-    });
-  }, []);
-
   const nextPage = useCallback(() => {
-    if (pageNumber < totalPages) {
-      history.push(`/main/${pageNumber + 1}`);
-    }
-  }, [history, pageNumber, totalPages]);
+    // if (pageNumber < totalPages) {
+    history.push(`/main/${pageNumber + 1}`);
+    // }
+  }, [history, pageNumber]);
 
   const prevPage = useCallback(() => {
     if (pageNumber > 1) {
@@ -77,12 +83,26 @@ const MainContextContainer: React.FC<{ totalPages: number }> = ({
     };
   }, [nextPage, prevPage]);
 
+  useEffect(() => {
+    document.body.style.setProperty("--color-theme-1", colorOne);
+    document.body.style.setProperty("--color-theme-2", colorTwo);
+  }, [colorOne, colorTwo]);
+
+  useEffect(() => {
+    infoRef.on("value", (snapshot) => {
+      setInfo(snapshot.val());
+    });
+  }, []);
+
   return (
     <MainContext.Provider
       value={{
-        actions,
-        addActions,
         pageNumber,
+        colorOne,
+        setColorOne,
+        colorTwo,
+        setColorTwo,
+        info,
       }}
     >
       {children}
