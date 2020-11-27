@@ -18,7 +18,7 @@ const ToasterTechSlide: React.FC<ToasterTechSlideProps> = () => {
   // const {} = useMainContext();
 
   return (
-    <SlideMediaTemplate title="Toaster – Technology">
+    <SlideMediaTemplate title="Toaster – Digital">
       <ImageSlides images={[AR, Jukebox, Petsu, Sweepstakes, Jaws]} />
     </SlideMediaTemplate>
   );

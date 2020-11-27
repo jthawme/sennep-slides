@@ -1,0 +1,27 @@
+.slide {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto 1fr;
+
+  gap: var(--size-unit-10);
+
+  padding-bottom: var(--size-unit-20);
+}
+
+.title {
+  grid-column: 1 / span 2;
+
+  text-align: center;
+}
+
+.answer {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: var(--size-unit-2);
+
+  border: 1px solid var(--color-theme-2);
+}

@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { BlockPicker, CirclePicker } from "react-color";
+import { DEFAULT_COLORS } from "../../utils/constants";
 import { clickOutside } from "../../utils/utils";
 
 import styles from "./ColorBlock.module.scss";
@@ -35,6 +36,7 @@ const ColorBlock: React.FC<ColorBlockProps> = ({
           <CirclePicker
             onChangeComplete={(colors) => onUpdate(colors.hex)}
             color={color}
+            colors={DEFAULT_COLORS}
           />
         </div>
       )}

@@ -14,6 +14,20 @@ import { SwoSitesSlide } from "../../Slides/SwoSitesSlide";
 import { ToasterIntroSlide } from "../../Slides/ToasterIntroSlide";
 import { UserPressFeedback } from "../../components/UserPressFeedback";
 import { ToasterTechSlide } from "../../Slides/ToasterTechSlide";
+import { LCCSlide } from "../../Slides/LCCSlide";
+import { FreelanceSlide } from "../../Slides/FreelanceSlide";
+import { SoWhatSlide } from "../../Slides/SoWhatSlide";
+import { ItsOkaySlide } from "../../Slides/ItsOkaySlide";
+import { PlayfulCodeSlide } from "../../Slides/PlayfulCodeSlide";
+import { LinkSlide } from "../../Slides/LinkSlide";
+import { DynamicSlide } from "../../Slides/DynamicSlide";
+import { DoesWorkSlide } from "../../Slides/DoesWorkSlide";
+import { LoveDesign } from "../../Slides/LoveDesign";
+import { UniqueSlide } from "../../Slides/UniqueSlide";
+import { ThingsSlide } from "../../Slides/ThingsSlide";
+import { RapidSlide } from "../../Slides/RapidSlide";
+import { PrototypeSlide } from "../../Slides/PrototypeSlide";
+import { ToolsSlide } from "../../Slides/ToolsSlide";
 
 const MainPage: React.FC = () => {
   // let { path } = useRouteMatch();
@@ -57,6 +71,48 @@ const MainPage: React.FC = () => {
         </Route>
         <Route path="/main/12" exact>
           <ToasterTechSlide />
+        </Route>
+        <Route path="/main/13" exact>
+          <LCCSlide />
+        </Route>
+        <Route path="/main/14" exact>
+          <FreelanceSlide />
+        </Route>
+        <Route path="/main/15" exact>
+          <SoWhatSlide />
+        </Route>
+        <Route path="/main/16" exact>
+          <ItsOkaySlide />
+        </Route>
+        <Route path="/main/17" exact>
+          <PlayfulCodeSlide />
+        </Route>
+        <Route path="/main/18" exact>
+          <LinkSlide />
+        </Route>
+        <Route path="/main/19" exact>
+          <DoesWorkSlide />
+        </Route>
+        <Route path="/main/20" exact>
+          <LoveDesign />
+        </Route>
+        <Route path="/main/21" exact>
+          <DynamicSlide />
+        </Route>
+        <Route path="/main/22" exact>
+          <UniqueSlide />
+        </Route>
+        <Route path="/main/23" exact>
+          <ThingsSlide />
+        </Route>
+        <Route path="/main/24" exact>
+          <RapidSlide />
+        </Route>
+        <Route path="/main/25" exact>
+          <PrototypeSlide />
+        </Route>
+        <Route path="/main/26" exact>
+          <ToolsSlide />
         </Route>
         <Route>
           <Redirect to="/main/1" />

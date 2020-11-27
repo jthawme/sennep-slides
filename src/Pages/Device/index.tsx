@@ -4,9 +4,9 @@ import { CirclePicker } from "react-color";
 
 import styles from "./DevicePage.module.scss";
 import { addEvent, DBEventType } from "../../utils/db";
-import { UserPressIcon } from "../../components/UserPressFeedback";
+import { UserPress, UserPressIcon } from "../../components/UserPressFeedback";
 import { getIcon } from "../../components/UserPressFeedback/UserPressItem";
-import { DEFAULT_COLOR } from "../../utils/constants";
+import { DEFAULT_COLOR, DEFAULT_COLORS } from "../../utils/constants";
 import { Title } from "../../components/Title";
 
 const normalizePosition = (e: React.MouseEvent | React.TouchEvent) => {
@@ -30,6 +30,7 @@ const DevicePage = () => {
   const disabledRef = useRef(false);
   const [icon, setIcon] = useState<UserPressIcon>("smile");
   const [color, setColor] = useState<string>(DEFAULT_COLOR.TWO);
+  const [pos, setPos] = useState<UserPress | false>(false);
 
   const onSlideClick = useCallback(
     (e) => {
@@ -49,6 +50,11 @@ const DevicePage = () => {
         const percY = divY / height;
 
         timerRef.current = window.setTimeout(() => {
+          setPos({
+            x: percX,
+            y: percY,
+          });
+
           addEvent(DBEventType.Location, {
             x: percX,
             y: percY,
@@ -66,6 +72,14 @@ const DevicePage = () => {
   return (
     <main className={styles.main}>
       <div className={styles.slide} onClick={onSlideClick}>
+        {pos && (
+          <span
+            className={styles.slideEl}
+            style={
+              { "--pos-x": pos.x, "--pos-y": pos.y } as React.CSSProperties
+            }
+          />
+        )}
         <p>Click anyway in here</p>
       </div>
 
@@ -88,7 +102,11 @@ const DevicePage = () => {
         Colours
       </Title>
       <div className={styles.color}>
-        <CirclePicker color={color} onChangeComplete={(c) => setColor(c.hex)} />
+        <CirclePicker
+          colors={DEFAULT_COLORS}
+          color={color}
+          onChangeComplete={(c) => setColor(c.hex)}
+        />
       </div>
     </main>
   );
