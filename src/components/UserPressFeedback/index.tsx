@@ -3,7 +3,7 @@ import { DBEventType, listenForEvents } from "../../utils/db";
 import uniqid from "uniqid";
 import { UserPressItem } from "./UserPressItem";
 
-export type UserPressIcon = "smile" | "target" | "tv" | "dribbble";
+export type UserPressIcon = "smile" | "target" | "tv" | "dribbble" | "heart";
 
 export type UserPress = {
   x: number;

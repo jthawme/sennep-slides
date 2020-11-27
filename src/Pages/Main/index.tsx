@@ -28,6 +28,13 @@ import { ThingsSlide } from "../../Slides/ThingsSlide";
 import { RapidSlide } from "../../Slides/RapidSlide";
 import { PrototypeSlide } from "../../Slides/PrototypeSlide";
 import { ToolsSlide } from "../../Slides/ToolsSlide";
+import { FriendsOfKerouacSlide } from "../../Slides/FriendsOfKerouacSlide";
+import { WorkIntroSlide } from "../../Slides/WorkIntroSlide";
+import { MasterWikiSlide } from "../../Slides/Masterwiki";
+import { KinegramSlide } from "../../Slides/KinegramSlide";
+import { CreativeElephant } from "../../Slides/CreativeElephantSlide";
+import { DrumGeneratesSlide } from "../../Slides/DrumGenerates";
+import { ExitSlide } from "../../Slides/ExitSlide";
 
 const MainPage: React.FC = () => {
   // let { path } = useRouteMatch();
@@ -113,6 +120,27 @@ const MainPage: React.FC = () => {
         </Route>
         <Route path="/main/26" exact>
           <ToolsSlide />
+        </Route>
+        <Route path="/main/27" exact>
+          <WorkIntroSlide />
+        </Route>
+        <Route path="/main/28" exact>
+          <FriendsOfKerouacSlide />
+        </Route>
+        <Route path="/main/29" exact>
+          <MasterWikiSlide />
+        </Route>
+        <Route path="/main/30" exact>
+          <KinegramSlide />
+        </Route>
+        <Route path="/main/31" exact>
+          <CreativeElephant />
+        </Route>
+        <Route path="/main/32" exact>
+          <DrumGeneratesSlide />
+        </Route>
+        <Route path="/main/33" exact>
+          <ExitSlide />
         </Route>
         <Route>
           <Redirect to="/main/1" />

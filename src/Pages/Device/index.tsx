@@ -23,7 +23,13 @@ const normalizePosition = (e: React.MouseEvent | React.TouchEvent) => {
   };
 };
 
-const iconList: UserPressIcon[] = ["smile", "target", "tv", "dribbble"];
+const iconList: UserPressIcon[] = [
+  "smile",
+  "target",
+  "tv",
+  "dribbble",
+  "heart",
+];
 
 const DevicePage = () => {
   const timerRef = useRef(0);

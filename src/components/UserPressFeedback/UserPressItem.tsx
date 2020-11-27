@@ -6,6 +6,7 @@ import { ReactComponent as DribbbleSvg } from "./icons/dribbble.svg";
 import { ReactComponent as SmileSvg } from "./icons/smile.svg";
 import { ReactComponent as TargetSvg } from "./icons/target.svg";
 import { ReactComponent as TvSvg } from "./icons/tv.svg";
+import { ReactComponent as HeartSvg } from "./icons/heart.svg";
 
 import styles from "./UserPressFeedback.module.scss";
 
@@ -22,6 +23,8 @@ export const getIcon = (icon: UserPressIcon) => {
       return <TargetSvg />;
     case "tv":
       return <TvSvg />;
+    case "heart":
+      return <HeartSvg />;
     case "smile":
     default:
       return <SmileSvg />;
