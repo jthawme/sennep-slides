@@ -13,28 +13,27 @@ import { infoRef } from "../../utils/db";
 enum Key {
   ArrowRight = "ArrowRight",
   ArrowLeft = "ArrowLeft",
+  D = "D",
 }
 
 interface InfoDbObject {
-  usersCount: number;
+  usersCount: Record<string, true>;
 }
 
 interface MainContextProps {
   pageNumber: number;
-  colorOne: string;
-  setColorOne: (color: string) => void;
-  colorTwo: string;
-  setColorTwo: (color: string) => void;
-  info: InfoDbObject;
+  usersCount: number;
+  nextPage: () => void;
+  prevPage: () => void;
+  debug: boolean;
 }
 
 const MainContext = createContext<MainContextProps>({
-  colorOne: DEFAULT_COLOR.ONE,
-  colorTwo: DEFAULT_COLOR.TWO,
-  setColorOne: () => false,
-  setColorTwo: () => false,
   pageNumber: -1,
-  info: DEFAULT_INFO,
+  usersCount: -1,
+  nextPage: () => false,
+  prevPage: () => false,
+  debug: false,
 });
 const MainContextContainer: React.FC<{ totalPages: number }> = ({
   children,
@@ -43,10 +42,17 @@ const MainContextContainer: React.FC<{ totalPages: number }> = ({
   const history = useHistory();
 
   const { page = "1" } = useParams<{ page?: string }>();
+  const [info, setInfo] = useState<InfoDbObject>({ ...DEFAULT_INFO });
 
-  const [colorOne, setColorOne] = useState("#d4d7db");
-  const [colorTwo, setColorTwo] = useState("#262626");
-  const [info, setInfo] = useState({ ...DEFAULT_INFO });
+  const [debug, setDebug] = useState(false);
+
+  const usersCount = useMemo(() => {
+    if (!info) {
+      return -1;
+    }
+
+    return Object.keys(info.usersCount).length - 1;
+  }, [info]);
 
   const pageNumber = useMemo(() => {
     const num = parseInt(page, 10);
@@ -57,7 +63,7 @@ const MainContextContainer: React.FC<{ totalPages: number }> = ({
     if (pageNumber < totalPages) {
       history.push(`/main/${pageNumber + 1}`);
     }
-  }, [history, pageNumber]);
+  }, [history, pageNumber, totalPages]);
 
   const prevPage = useCallback(() => {
     if (pageNumber > 1) {
@@ -74,6 +80,10 @@ const MainContextContainer: React.FC<{ totalPages: number }> = ({
       if (e.key === Key.ArrowRight) {
         nextPage();
       }
+
+      if (e.key === Key.D && e.shiftKey) {
+        setDebug((s) => !s);
+      }
     };
 
     window.addEventListener("keyup", cb, false);
@@ -82,11 +92,6 @@ const MainContextContainer: React.FC<{ totalPages: number }> = ({
       window.removeEventListener("keyup", cb);
     };
   }, [nextPage, prevPage]);
-
-  useEffect(() => {
-    document.body.style.setProperty("--color-theme-1", colorOne);
-    document.body.style.setProperty("--color-theme-2", colorTwo);
-  }, [colorOne, colorTwo]);
 
   useEffect(() => {
     infoRef.on("value", (snapshot) => {
@@ -98,11 +103,10 @@ const MainContextContainer: React.FC<{ totalPages: number }> = ({
     <MainContext.Provider
       value={{
         pageNumber,
-        colorOne,
-        setColorOne,
-        colorTwo,
-        setColorTwo,
-        info,
+        usersCount,
+        nextPage,
+        prevPage,
+        debug,
       }}
     >
       {children}

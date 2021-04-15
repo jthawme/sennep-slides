@@ -1,14 +1,19 @@
-import React, { useCallback, useEffect, useState } from "react";
-import { DBEventType, listenForEvents } from "../../utils/db";
+import React, {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 import uniqid from "uniqid";
-import { UserPressItem } from "./UserPressItem";
+import { DBEventType, listenForEvents } from "../../utils/db";
 
 export type UserPressIcon = "smile" | "target" | "tv" | "dribbble" | "heart";
 
 export type UserPress = {
   x: number;
   y: number;
-  icon?: UserPressIcon;
+  icon?: string;
   color?: string;
 };
 
@@ -18,7 +23,17 @@ export type UserPressObj = {
 
 interface UserPressFeedbackProps {}
 
-const UserPressFeedback: React.FC<UserPressFeedbackProps> = () => {
+interface UserPressContextProps {
+  presses: UserPressObj[];
+  onRemove: (id: string) => void;
+}
+
+const UserPressContext = createContext<UserPressContextProps>({
+  presses: [],
+  onRemove: () => false,
+});
+
+const UserPressFeedback: React.FC<UserPressFeedbackProps> = ({ children }) => {
   const [presses, setPresses] = useState<UserPressObj[]>([]);
 
   useEffect(() => {
@@ -35,7 +50,7 @@ const UserPressFeedback: React.FC<UserPressFeedbackProps> = () => {
             ...curr,
             {
               ...obj.value,
-              id: obj.timestamp.toString(),
+              id: uniqid(),
             },
           ];
         });
@@ -43,7 +58,7 @@ const UserPressFeedback: React.FC<UserPressFeedbackProps> = () => {
     });
   }, []);
 
-  const onEnd = useCallback((id: string) => {
+  const onRemove = useCallback((id: string) => {
     setPresses((curr) => {
       const c = curr.slice();
 
@@ -60,12 +75,12 @@ const UserPressFeedback: React.FC<UserPressFeedbackProps> = () => {
   // console.log(presses);
 
   return (
-    <>
-      {presses.map((item) => (
-        <UserPressItem {...item} key={item.id} onEnd={onEnd} />
-      ))}
-    </>
+    <UserPressContext.Provider value={{ presses, onRemove }}>
+      {children}
+    </UserPressContext.Provider>
   );
 };
 
-export { UserPressFeedback };
+const useUserPress = () => useContext(UserPressContext);
+
+export { UserPressFeedback, useUserPress };

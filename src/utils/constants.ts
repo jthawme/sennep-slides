@@ -4,7 +4,7 @@ export const DEFAULT_COLOR = {
 };
 
 export const DEFAULT_INFO = {
-  usersCount: -1,
+  usersCount: {},
 };
 
 export const DEFAULT_COLORS = [

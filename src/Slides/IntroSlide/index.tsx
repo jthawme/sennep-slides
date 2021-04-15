@@ -1,18 +1,15 @@
 import React from "react";
+import { Bouncer } from "../../components/Bouncer";
+import { SlideCommon } from "../../components/SlideCommon";
 
-import { SlideTitleTemplate } from "../../components/SlideTitleTemplate";
-
+import styles from "./IntroSlide.module.scss";
 interface IntroSlideProps {}
 
 const IntroSlide: React.FC<IntroSlideProps> = () => {
   return (
-    <SlideTitleTemplate
-      title="Jonny Thaw"
-      subtitle="Creative Coder"
-      metaTitle="GMD Talk – Nov 2020"
-    >
-      {/* <span>Slide 1</span> */}
-    </SlideTitleTemplate>
+    <SlideCommon className={styles.slide}>
+      <Bouncer />
+    </SlideCommon>
   );
 };
 

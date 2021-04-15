@@ -1,153 +1,306 @@
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { SlideCommonFooter } from "../../components/SlideCommon/SliderCommonFooter";
-import { IntroSlide } from "../../Slides/IntroSlide";
-import { VennSlide } from "../../Slides/VennSlide";
-import { ProfessionalWorkSlide } from "../../Slides/ProfessionalWorkSlide";
-import { PersonalPracticeSlide } from "../../Slides/PersonalPracticeSlide";
-import { TalkIntroSlide } from "../../Slides/TalkIntroSlide";
-import { UcaSlide } from "../../Slides/UcaSlide";
-import { SwoSlide } from "../../Slides/SwoSlide";
-import { InternSlide } from "../../Slides/InternSlide";
-import { BoatSlide } from "../../Slides/BoatSlide";
-import { SwoSitesSlide } from "../../Slides/SwoSitesSlide";
-import { ToasterIntroSlide } from "../../Slides/ToasterIntroSlide";
 import { UserPressFeedback } from "../../components/UserPressFeedback";
-import { ToasterTechSlide } from "../../Slides/ToasterTechSlide";
-import { LCCSlide } from "../../Slides/LCCSlide";
-import { FreelanceSlide } from "../../Slides/FreelanceSlide";
-import { SoWhatSlide } from "../../Slides/SoWhatSlide";
-import { ItsOkaySlide } from "../../Slides/ItsOkaySlide";
-import { PlayfulCodeSlide } from "../../Slides/PlayfulCodeSlide";
-import { LinkSlide } from "../../Slides/LinkSlide";
-import { DynamicSlide } from "../../Slides/DynamicSlide";
-import { DoesWorkSlide } from "../../Slides/DoesWorkSlide";
-import { LoveDesign } from "../../Slides/LoveDesign";
-import { UniqueSlide } from "../../Slides/UniqueSlide";
-import { ThingsSlide } from "../../Slides/ThingsSlide";
-import { RapidSlide } from "../../Slides/RapidSlide";
-import { PrototypeSlide } from "../../Slides/PrototypeSlide";
-import { ToolsSlide } from "../../Slides/ToolsSlide";
-import { FriendsOfKerouacSlide } from "../../Slides/FriendsOfKerouacSlide";
-import { WorkIntroSlide } from "../../Slides/WorkIntroSlide";
-import { MasterWikiSlide } from "../../Slides/Masterwiki";
-import { KinegramSlide } from "../../Slides/KinegramSlide";
-import { CreativeElephant } from "../../Slides/CreativeElephantSlide";
-import { DrumGeneratesSlide } from "../../Slides/DrumGenerates";
-import { ExitSlide } from "../../Slides/ExitSlide";
+
+import { IntroSlide } from "../../Slides/IntroSlide";
+import { MeSlide } from "../../Slides/MeSlide";
+import { TinderSlide } from "../../Slides/TinderSlide";
+import { InteractionSlide } from "../../Slides/InteractionSlide";
+import { SlideQuestionTemplate } from "../../components/SlideQuestionTemplate";
+import { SlideMediaTemplate } from "../../components/SlideMediaTemplate";
+import { SlideTitleTemplate } from "../../components/SlideTitleTemplate";
+import { Bouncer } from "../../components/Bouncer";
+
+const p = (path: string) => `${process.env.PUBLIC_URL}${path}`;
 
 const MainPage: React.FC = () => {
   // let { path } = useRouteMatch();
 
   return (
-    <>
-      <UserPressFeedback />
+    <UserPressFeedback>
       <Switch>
         <Route path="/main/1" exact>
           <IntroSlide />
         </Route>
         <Route path="/main/2" exact>
-          <VennSlide />
+          <MeSlide />
         </Route>
         <Route path="/main/3" exact>
-          <ProfessionalWorkSlide />
+          <TinderSlide />
         </Route>
         <Route path="/main/4" exact>
-          <PersonalPracticeSlide />
+          <InteractionSlide />
         </Route>
         <Route path="/main/5" exact>
-          <TalkIntroSlide />
+          <SlideQuestionTemplate
+            oneIcon="✅"
+            twoIcon="❌"
+            one="Yes"
+            two="No"
+            title="Is this working?"
+          />
         </Route>
         <Route path="/main/6" exact>
-          <UcaSlide />
+          <SlideQuestionTemplate
+            smallIcon
+            oneIcon="I'm a bad person 👿"
+            twoIcon="I'm a good person 😇"
+            one="Yes"
+            two="No"
+            title="Did you lie on the previous question?"
+          />
         </Route>
         <Route path="/main/7" exact>
-          <SwoSlide />
+          <SlideQuestionTemplate
+            one="Analog"
+            two="Digital"
+            title="Are you an analog or digital person?"
+            graphs
+            iconLife={2000}
+            smallIcon
+          />
         </Route>
         <Route path="/main/8" exact>
-          <InternSlide />
+          <SlideQuestionTemplate
+            one="I think so"
+            two="I don't think so"
+            title="Do you wish you were more analog/digital?"
+            graphs
+            iconLife={2000}
+            smallIcon
+          />
         </Route>
         <Route path="/main/9" exact>
-          <BoatSlide />
+          <SlideTitleTemplate
+            title="Now for some actual work"
+            subtitle="But feel free to tap away"
+          />
         </Route>
         <Route path="/main/10" exact>
-          <SwoSitesSlide />
+          <SlideMediaTemplate
+            attribute="MSCHF"
+            big
+            media={p("/photos/mschf.png")}
+          />
         </Route>
         <Route path="/main/11" exact>
-          <ToasterIntroSlide />
+          <SlideMediaTemplate
+            attribute="MSCHF"
+            big
+            media={p("/photos/satanshoes.png")}
+          />
         </Route>
         <Route path="/main/12" exact>
-          <ToasterTechSlide />
+          <SlideMediaTemplate
+            attribute="MSCHF – americanflaglogs.com"
+            big
+            media={p("/photos/afl.png")}
+          />
         </Route>
         <Route path="/main/13" exact>
-          <LCCSlide />
+          <SlideMediaTemplate
+            attribute="MSCHF – spottingplutes.com/?ref=mschfapp"
+            big
+            media={p("/photos/spottingplutes.png")}
+          />
         </Route>
         <Route path="/main/14" exact>
-          <FreelanceSlide />
+          <SlideMediaTemplate
+            attribute="MSCHF – cardvcard.com"
+            big
+            media={p("/photos/cardvcard.png")}
+          />
         </Route>
         <Route path="/main/15" exact>
-          <SoWhatSlide />
+          <SlideMediaTemplate
+            attribute="MSCHF – masterwiki.how"
+            big
+            media={p("/video/masterwiki.mp4")}
+            video
+          />
         </Route>
         <Route path="/main/16" exact>
-          <ItsOkaySlide />
+          <SlideMediaTemplate
+            attribute="RCA"
+            big
+            media={p("/photos/rca.png")}
+          />
         </Route>
         <Route path="/main/17" exact>
-          <PlayfulCodeSlide />
+          <SlideMediaTemplate
+            attribute="Creative Elephant"
+            big
+            media={p("/video/creativeelephant.mp4")}
+            video
+          />
         </Route>
         <Route path="/main/18" exact>
-          <LinkSlide />
+          <SlideMediaTemplate
+            attribute="Spitfire Audio"
+            big
+            media={p("/photos/labs.png")}
+          />
         </Route>
         <Route path="/main/19" exact>
-          <DoesWorkSlide />
+          <SlideMediaTemplate
+            attribute="Spitfire Audio"
+            big
+            media={p("/video/labs.mp4")}
+            video
+          />
         </Route>
         <Route path="/main/20" exact>
-          <LoveDesign />
+          <SlideMediaTemplate
+            attribute="Puma"
+            big
+            media={p("/video/puma.mp4")}
+            video
+          />
         </Route>
         <Route path="/main/21" exact>
-          <DynamicSlide />
+          <SlideMediaTemplate
+            attribute="friendsofkerouac.com"
+            big
+            media={p("/video/fok.mp4")}
+            video
+          />
         </Route>
         <Route path="/main/22" exact>
-          <UniqueSlide />
+          <SlideMediaTemplate
+            attribute="films.jthaw.club"
+            big
+            media={p("/photos/films.png")}
+          />
         </Route>
         <Route path="/main/23" exact>
-          <ThingsSlide />
+          <SlideMediaTemplate
+            attribute="endlessvine.co"
+            big
+            media={p("/photos/vine.png")}
+          />
         </Route>
         <Route path="/main/24" exact>
-          <RapidSlide />
+          <SlideMediaTemplate media={p("/photos/diagram.png")} />
         </Route>
         <Route path="/main/25" exact>
-          <PrototypeSlide />
+          <SlideMediaTemplate
+            attribute="kinegram.app"
+            big
+            media={p("/video/kinegram.mp4")}
+            video
+          />
         </Route>
         <Route path="/main/26" exact>
-          <ToolsSlide />
+          <SlideMediaTemplate
+            attribute="Collage Characters"
+            big
+            media={p("/video/sennep.mp4")}
+            video
+          />
         </Route>
         <Route path="/main/27" exact>
-          <WorkIntroSlide />
+          <SlideMediaTemplate big media={p("/video/dreamers.mp4")} video />
         </Route>
         <Route path="/main/28" exact>
-          <FriendsOfKerouacSlide />
+          <SlideMediaTemplate big media={p("/photos/drums1.jpg")} />
         </Route>
         <Route path="/main/29" exact>
-          <MasterWikiSlide />
+          <SlideMediaTemplate big media={p("/photos/drums4.jpg")} />
         </Route>
         <Route path="/main/30" exact>
-          <KinegramSlide />
+          <SlideMediaTemplate big media={p("/photos/drums8.jpg")} />
         </Route>
         <Route path="/main/31" exact>
-          <CreativeElephant />
+          <SlideMediaTemplate big media={p("/photos/drums2.jpg")} />
         </Route>
         <Route path="/main/32" exact>
-          <DrumGeneratesSlide />
+          <SlideMediaTemplate big media={p("/photos/drums3.jpg")} />
         </Route>
         <Route path="/main/33" exact>
-          <ExitSlide />
+          <SlideMediaTemplate big media={p("/photos/drums5.jpg")} />
+        </Route>
+        <Route path="/main/34" exact>
+          <SlideMediaTemplate big media={p("/photos/drums6.jpg")} />
+        </Route>
+        <Route path="/main/35" exact>
+          <SlideMediaTemplate big media={p("/photos/drums7.jpg")} />
+        </Route>
+        <Route path="/main/36" exact>
+          <SlideMediaTemplate big media={p("/photos/contactsheet.jpeg")} />
+        </Route>
+        <Route path="/main/37" exact>
+          <SlideMediaTemplate
+            big
+            media={p("/video/digital-animation.mp4")}
+            video
+          />
+        </Route>
+        <Route path="/main/38" exact>
+          <SlideMediaTemplate
+            big
+            media={p("/video/analog-animation.mp4")}
+            video
+          />
+        </Route>
+        <Route path="/main/39" exact>
+          <SlideMediaTemplate
+            attribute="generate.jthaw.club"
+            big
+            media={p("/photos/generate.png")}
+          />
+        </Route>
+        <Route path="/main/40" exact>
+          <SlideTitleTemplate
+            title="Basically"
+            subtitle="(Terrible, harsh segue)"
+          />
+        </Route>
+        <Route path="/main/41" exact>
+          <SlideTitleTemplate
+            metaTitle="Everything can be"
+            title="Experimentation"
+            subtitle="Print out, scan back in"
+          />
+        </Route>
+        <Route path="/main/42" exact>
+          <SlideTitleTemplate
+            metaTitle="Everything can be"
+            title="Reverse engineered"
+            subtitle="Use computers to make things worse"
+          />
+        </Route>
+        <Route path="/main/43" exact>
+          <SlideTitleTemplate
+            metaTitle="Everything is an"
+            title="Opportunity"
+          />
+        </Route>
+        <Route path="/main/44" exact>
+          <SlideTitleTemplate
+            metaTitle="Let your skills aid your"
+            title="Passions"
+            subtitle="(If theyre different)"
+          />
+        </Route>
+        <Route path="/main/45" exact>
+          <SlideTitleTemplate title="Thanks" />
+        </Route>
+        <Route path="/main/46" exact>
+          <SlideTitleTemplate
+            title="Newsletter"
+            subtitle="📰 jthaw.me/newsletter 📰"
+            metaTitle="See the stream of consciousness"
+          >
+            <Bouncer />
+          </SlideTitleTemplate>
         </Route>
         <Route>
           <Redirect to="/main/1" />
         </Route>
       </Switch>
       <SlideCommonFooter />
-    </>
+    </UserPressFeedback>
   );
 };
 

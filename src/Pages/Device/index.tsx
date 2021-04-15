@@ -5,7 +5,6 @@ import { CirclePicker } from "react-color";
 import styles from "./DevicePage.module.scss";
 import { addEvent, DBEventType } from "../../utils/db";
 import { UserPress, UserPressIcon } from "../../components/UserPressFeedback";
-import { getIcon } from "../../components/UserPressFeedback/UserPressItem";
 import { DEFAULT_COLOR, DEFAULT_COLORS } from "../../utils/constants";
 import { Title } from "../../components/Title";
 
@@ -23,18 +22,25 @@ const normalizePosition = (e: React.MouseEvent | React.TouchEvent) => {
   };
 };
 
-const iconList: UserPressIcon[] = [
-  "smile",
-  "target",
-  "tv",
-  "dribbble",
-  "heart",
+const iconList: string[] = [
+  "🤪",
+  "😶",
+  "🥶",
+  "🥵",
+  "🤯",
+  "🥳",
+  "😎",
+  "🤓",
+  "👻",
+  "👽",
+  "👾",
+  "🤡",
 ];
 
 const DevicePage = () => {
   const timerRef = useRef(0);
   const disabledRef = useRef(false);
-  const [icon, setIcon] = useState<UserPressIcon>("smile");
+  const [icon, setIcon] = useState<string>(iconList[0]);
   const [color, setColor] = useState<string>(DEFAULT_COLOR.TWO);
   const [pos, setPos] = useState<UserPress | false>(false);
 
@@ -69,6 +75,9 @@ const DevicePage = () => {
           }).then(() => {
             disabledRef.current = false;
           });
+          // .catch(() => {
+          //   console.log("hey");
+          // });
         }, 100);
       }
     },
@@ -99,12 +108,12 @@ const DevicePage = () => {
             className={classNames(styles.item, { [styles.active]: icon === i })}
             onClick={() => setIcon(i)}
           >
-            {getIcon(i)}
+            {i}
           </span>
         ))}
       </div>
 
-      <Title size="small" className={styles.title}>
+      {/* <Title size="small" className={styles.title}>
         Colours
       </Title>
       <div className={styles.color}>
@@ -113,7 +122,7 @@ const DevicePage = () => {
           color={color}
           onChangeComplete={(c) => setColor(c.hex)}
         />
-      </div>
+      </div> */}
     </main>
   );
 };

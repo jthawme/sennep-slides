@@ -45,3 +45,7 @@ export const registerExits = (onEscape: VoidFunction): VoidFunction => {
   document.addEventListener("keyup", cb);
   return () => document.removeEventListener("keyup", cb);
 };
+
+export const randomArr = (arr: any[]) => {
+  return arr[Math.floor(Math.random() * arr.length)];
+};

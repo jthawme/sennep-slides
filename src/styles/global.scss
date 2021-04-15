@@ -17,8 +17,9 @@
   --font-weight-normal: 500;
   --font-weight-bold: 700;
 
-  --color-theme-1: #d4d7db;
-  --color-theme-2: #262626;
+  --color-orange: rgb(255, 81, 0);
+  --color-purple: #d554b6;
+  --color-pink: #ffcdd2;
 
   @for $i from 1 through 20 {
     --size-unit-#{$i}: #{$i * 4}px;

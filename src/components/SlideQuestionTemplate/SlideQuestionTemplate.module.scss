@@ -25,3 +25,28 @@
 
   border: 1px solid var(--color-theme-2);
 }
+
+.circle {
+  position: absolute;
+
+  z-index: -1;
+
+  top: 50%;
+  left: 25%;
+
+  transform: translate3d(-50%, -50%, 0) scale(var(--size));
+  transition: {
+    duration: 0.25s;
+    property: transform;
+  }
+
+  background-color: red;
+
+  border-radius: 100%;
+  width: 40vw;
+  height: 40vw;
+
+  &.two {
+    left: 75%;
+  }
+}

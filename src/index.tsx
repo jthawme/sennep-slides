@@ -16,7 +16,7 @@ ReactDOM.render(
     <Router>
       <Switch>
         <Route path="/main/:page?">
-          <MainContextContainer totalPages={33}>
+          <MainContextContainer totalPages={100}>
             <MainPage />
           </MainContextContainer>
         </Route>
