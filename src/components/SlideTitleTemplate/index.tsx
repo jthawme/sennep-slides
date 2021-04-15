@@ -4,11 +4,13 @@ import { Title } from "../Title";
 import { SlideCommon, SlideCommonProps } from "../SlideCommon";
 
 import styles from "./SlideTitleTemplate.module.scss";
+import { PressContainer } from "../PressContainer";
 
 interface SlideTitleTemplateProps extends SlideCommonProps {
   subtitle?: string;
   title: string;
   metaTitle?: string;
+  withPresses?: boolean;
 }
 
 const SlideTitleTemplate: React.FC<SlideTitleTemplateProps> = ({
@@ -17,6 +19,7 @@ const SlideTitleTemplate: React.FC<SlideTitleTemplateProps> = ({
   title,
   children,
   className,
+  withPresses = false,
   ...props
 }) => {
   return (
@@ -39,6 +42,8 @@ const SlideTitleTemplate: React.FC<SlideTitleTemplateProps> = ({
       </div>
 
       {children}
+
+      {withPresses && <PressContainer />}
     </SlideCommon>
   );
 };

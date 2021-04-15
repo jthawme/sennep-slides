@@ -4,6 +4,7 @@ import { Title } from "../Title";
 import { SlideCommon, SlideCommonProps } from "../SlideCommon";
 
 import styles from "./SlideMediaTemplate.module.scss";
+import { PressContainer } from "../PressContainer";
 
 interface SlideMediaTemplateProps extends SlideCommonProps {
   media: string;
@@ -11,6 +12,7 @@ interface SlideMediaTemplateProps extends SlideCommonProps {
   cover?: boolean;
   big?: boolean;
   attribute?: string;
+  withPresses?: boolean;
 }
 
 const SlideMediaTemplate: React.FC<SlideMediaTemplateProps> = ({
@@ -21,6 +23,7 @@ const SlideMediaTemplate: React.FC<SlideMediaTemplateProps> = ({
   cover = false,
   big = false,
   attribute,
+  withPresses = false,
   ...props
 }) => {
   const onClick = useCallback((e) => {
@@ -55,6 +58,8 @@ const SlideMediaTemplate: React.FC<SlideMediaTemplateProps> = ({
           <img src={media} className={styles.media} alt="" />
         )}
       </div>
+
+      {withPresses && <PressContainer />}
     </SlideCommon>
   );
 };
