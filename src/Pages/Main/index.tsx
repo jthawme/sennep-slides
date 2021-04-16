@@ -30,9 +30,12 @@ const MainPage: React.FC = () => {
           <TinderSlide />
         </Route>
         <Route path="/main/4" exact>
-          <InteractionSlide />
+          <SlideTitleTemplate title="Interaction" subtitle="Basically" />
         </Route>
         <Route path="/main/5" exact>
+          <InteractionSlide />
+        </Route>
+        <Route path="/main/6" exact>
           <SlideQuestionTemplate
             oneIcon="✅"
             twoIcon="❌"
@@ -41,7 +44,7 @@ const MainPage: React.FC = () => {
             title="Is this working?"
           />
         </Route>
-        <Route path="/main/6" exact>
+        <Route path="/main/7" exact>
           <SlideQuestionTemplate
             smallIcon
             oneIcon="I'm a bad person 👿"
@@ -51,7 +54,7 @@ const MainPage: React.FC = () => {
             title="Did you lie on the previous question?"
           />
         </Route>
-        <Route path="/main/7" exact>
+        <Route path="/main/8" exact>
           <SlideQuestionTemplate
             one="Analog"
             two="Digital"
@@ -61,7 +64,7 @@ const MainPage: React.FC = () => {
             smallIcon
           />
         </Route>
-        <Route path="/main/8" exact>
+        <Route path="/main/9" exact>
           <SlideQuestionTemplate
             one="I think so"
             two="I don't think so"
@@ -71,19 +74,11 @@ const MainPage: React.FC = () => {
             smallIcon
           />
         </Route>
-        <Route path="/main/9" exact>
+        <Route path="/main/10" exact>
           <SlideTitleTemplate
             withPresses
             title="Now for some actual work"
             subtitle="But feel free to tap away"
-          />
-        </Route>
-        <Route path="/main/10" exact>
-          <SlideMediaTemplate
-            withPresses
-            attribute="MSCHF"
-            big
-            media={p("/photos/mschf.png")}
           />
         </Route>
         <Route path="/main/11" exact>
@@ -91,10 +86,18 @@ const MainPage: React.FC = () => {
             withPresses
             attribute="MSCHF"
             big
-            media={p("/photos/satanshoes.png")}
+            media={p("/photos/mschf.png")}
           />
         </Route>
         <Route path="/main/12" exact>
+          <SlideMediaTemplate
+            withPresses
+            attribute="MSCHF"
+            big
+            media={p("/photos/satanshoes.png")}
+          />
+        </Route>
+        <Route path="/main/13" exact>
           <SlideMediaTemplate
             withPresses
             attribute="MSCHF – americanflaglogs.com"
@@ -102,7 +105,7 @@ const MainPage: React.FC = () => {
             media={p("/photos/afl.png")}
           />
         </Route>
-        <Route path="/main/13" exact>
+        <Route path="/main/14" exact>
           <SlideMediaTemplate
             withPresses
             attribute="MSCHF – spottingplutes.com/?ref=mschfapp"
@@ -110,7 +113,7 @@ const MainPage: React.FC = () => {
             media={p("/photos/spottingplutes.png")}
           />
         </Route>
-        <Route path="/main/14" exact>
+        <Route path="/main/15" exact>
           <SlideMediaTemplate
             withPresses
             attribute="MSCHF – cardvcard.com"
@@ -118,7 +121,7 @@ const MainPage: React.FC = () => {
             media={p("/photos/cardvcard.png")}
           />
         </Route>
-        <Route path="/main/15" exact>
+        <Route path="/main/16" exact>
           <SlideMediaTemplate
             withPresses
             attribute="MSCHF – masterwiki.how"
@@ -127,7 +130,7 @@ const MainPage: React.FC = () => {
             video
           />
         </Route>
-        <Route path="/main/16" exact>
+        <Route path="/main/17" exact>
           <SlideMediaTemplate
             withPresses
             attribute="RCA"
@@ -135,7 +138,7 @@ const MainPage: React.FC = () => {
             media={p("/photos/rca.png")}
           />
         </Route>
-        <Route path="/main/17" exact>
+        <Route path="/main/18" exact>
           <SlideMediaTemplate
             withPresses
             attribute="Creative Elephant"
@@ -144,7 +147,7 @@ const MainPage: React.FC = () => {
             video
           />
         </Route>
-        <Route path="/main/18" exact>
+        <Route path="/main/19" exact>
           <SlideMediaTemplate
             withPresses
             attribute="Spitfire Audio"
@@ -152,7 +155,7 @@ const MainPage: React.FC = () => {
             media={p("/photos/labs.png")}
           />
         </Route>
-        <Route path="/main/19" exact>
+        <Route path="/main/20" exact>
           <SlideMediaTemplate
             withPresses
             attribute="Spitfire Audio"
@@ -161,7 +164,7 @@ const MainPage: React.FC = () => {
             video
           />
         </Route>
-        <Route path="/main/20" exact>
+        <Route path="/main/21" exact>
           <SlideMediaTemplate
             withPresses
             attribute="Puma"
@@ -170,7 +173,7 @@ const MainPage: React.FC = () => {
             video
           />
         </Route>
-        <Route path="/main/21" exact>
+        <Route path="/main/22" exact>
           <SlideMediaTemplate
             withPresses
             attribute="friendsofkerouac.com"
@@ -179,7 +182,7 @@ const MainPage: React.FC = () => {
             video
           />
         </Route>
-        <Route path="/main/22" exact>
+        <Route path="/main/23" exact>
           <SlideMediaTemplate
             withPresses
             attribute="films.jthaw.club"
@@ -187,7 +190,7 @@ const MainPage: React.FC = () => {
             media={p("/photos/films.png")}
           />
         </Route>
-        <Route path="/main/23" exact>
+        <Route path="/main/24" exact>
           <SlideMediaTemplate
             withPresses
             attribute="endlessvine.co"
@@ -195,10 +198,26 @@ const MainPage: React.FC = () => {
             media={p("/photos/vine.png")}
           />
         </Route>
-        <Route path="/main/24" exact>
+        <Route path="/main/25" exact>
+          <SlideMediaTemplate
+            withPresses
+            attribute="aispy.io"
+            big
+            media={p("/photos/aispy1.png")}
+          />
+        </Route>
+        <Route path="/main/26" exact>
+          <SlideMediaTemplate
+            withPresses
+            attribute="aispy.io"
+            big
+            media={p("/photos/animate.gif")}
+          />
+        </Route>
+        <Route path="/main/27" exact>
           <SlideMediaTemplate withPresses media={p("/photos/diagram.png")} />
         </Route>
-        <Route path="/main/25" exact>
+        <Route path="/main/28" exact>
           <SlideMediaTemplate
             withPresses
             attribute="kinegram.app"
@@ -207,7 +226,7 @@ const MainPage: React.FC = () => {
             video
           />
         </Route>
-        <Route path="/main/26" exact>
+        <Route path="/main/29" exact>
           <SlideMediaTemplate
             withPresses
             attribute="Collage Characters"
@@ -216,7 +235,7 @@ const MainPage: React.FC = () => {
             video
           />
         </Route>
-        <Route path="/main/27" exact>
+        <Route path="/main/30" exact>
           <SlideMediaTemplate
             withPresses
             big
@@ -224,38 +243,38 @@ const MainPage: React.FC = () => {
             video
           />
         </Route>
-        <Route path="/main/28" exact>
+        <Route path="/main/31" exact>
           <SlideMediaTemplate withPresses big media={p("/photos/drums1.jpg")} />
         </Route>
-        <Route path="/main/29" exact>
+        <Route path="/main/32" exact>
           <SlideMediaTemplate withPresses big media={p("/photos/drums4.jpg")} />
         </Route>
-        <Route path="/main/30" exact>
+        <Route path="/main/33" exact>
           <SlideMediaTemplate withPresses big media={p("/photos/drums8.jpg")} />
         </Route>
-        <Route path="/main/31" exact>
+        <Route path="/main/34" exact>
           <SlideMediaTemplate withPresses big media={p("/photos/drums2.jpg")} />
         </Route>
-        <Route path="/main/32" exact>
+        <Route path="/main/35" exact>
           <SlideMediaTemplate withPresses big media={p("/photos/drums3.jpg")} />
         </Route>
-        <Route path="/main/33" exact>
+        <Route path="/main/36" exact>
           <SlideMediaTemplate withPresses big media={p("/photos/drums5.jpg")} />
         </Route>
-        <Route path="/main/34" exact>
+        <Route path="/main/37" exact>
           <SlideMediaTemplate withPresses big media={p("/photos/drums6.jpg")} />
         </Route>
-        <Route path="/main/35" exact>
+        <Route path="/main/38" exact>
           <SlideMediaTemplate withPresses big media={p("/photos/drums7.jpg")} />
         </Route>
-        <Route path="/main/36" exact>
+        <Route path="/main/39" exact>
           <SlideMediaTemplate
             withPresses
             big
             media={p("/photos/contactsheet.jpeg")}
           />
         </Route>
-        <Route path="/main/37" exact>
+        <Route path="/main/40" exact>
           <SlideMediaTemplate
             big
             withPresses
@@ -263,7 +282,7 @@ const MainPage: React.FC = () => {
             video
           />
         </Route>
-        <Route path="/main/38" exact>
+        <Route path="/main/41" exact>
           <SlideMediaTemplate
             big
             withPresses
@@ -271,7 +290,7 @@ const MainPage: React.FC = () => {
             video
           />
         </Route>
-        <Route path="/main/39" exact>
+        <Route path="/main/42" exact>
           <SlideMediaTemplate
             attribute="generate.jthaw.club"
             withPresses
@@ -279,14 +298,23 @@ const MainPage: React.FC = () => {
             media={p("/photos/generate.png")}
           />
         </Route>
-        <Route path="/main/40" exact>
+        <Route path="/main/43" exact>
+          <SlideMediaTemplate
+            attribute="generate.jthaw.club"
+            withPresses
+            big
+            media={p("/video/generate.mp4")}
+            video
+          />
+        </Route>
+        <Route path="/main/44" exact>
           <SlideTitleTemplate
             withPresses
             title="Basically"
-            subtitle="(Terrible, harsh segue)"
+            metaTitle="(Terrible, harsh segue)"
           />
         </Route>
-        <Route path="/main/41" exact>
+        <Route path="/main/45" exact>
           <SlideTitleTemplate
             withPresses
             metaTitle="Everything can be"
@@ -294,7 +322,7 @@ const MainPage: React.FC = () => {
             subtitle="Print out, scan back in"
           />
         </Route>
-        <Route path="/main/42" exact>
+        <Route path="/main/46" exact>
           <SlideTitleTemplate
             withPresses
             metaTitle="Everything can be"
@@ -302,14 +330,14 @@ const MainPage: React.FC = () => {
             subtitle="Use computers to make things worse"
           />
         </Route>
-        <Route path="/main/43" exact>
+        <Route path="/main/47" exact>
           <SlideTitleTemplate
             withPresses
             metaTitle="Everything is an"
             title="Opportunity"
           />
         </Route>
-        <Route path="/main/44" exact>
+        <Route path="/main/48" exact>
           <SlideTitleTemplate
             withPresses
             metaTitle="Let your skills aid your"
@@ -317,10 +345,10 @@ const MainPage: React.FC = () => {
             subtitle="(If theyre different)"
           />
         </Route>
-        <Route path="/main/45" exact>
+        <Route path="/main/49" exact>
           <SlideTitleTemplate withPresses title="Thanks" />
         </Route>
-        <Route path="/main/46" exact>
+        <Route path="/main/50" exact>
           <SlideTitleTemplate
             withPresses
             title="Newsletter"
